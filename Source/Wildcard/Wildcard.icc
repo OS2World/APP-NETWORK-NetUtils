@@ -1,0 +1,9 @@
+option  link(pmtype, pm), link(linkwithmultithreadlib),
+        link(linkwithsharedlib,no), opt(level, "2")
+{
+   target "Wildcard.exe"
+   {
+      source type(c) "Wildcard.c"
+      source type(rc) "Wildcard.rc"
+   }
+}

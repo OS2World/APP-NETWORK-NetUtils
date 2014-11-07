@@ -1,0 +1,121 @@
+#include <os2.h>
+#include "ConfReg2.h"
+
+ICON 1 "ConfReg2.ICO"
+
+DLGTEMPLATE DIALOGWIN PRELOAD MOVEABLE
+BEGIN
+    DIALOG  "Config Register Decoder for Cisco Routers", DIALOGWIN, 50, 20, 280, 230,
+            FS_SCREENALIGN | WS_VISIBLE | WS_SYNCPAINT, FCF_SYSMENU |
+            FCF_TITLEBAR | FCF_MINBUTTON | FCF_TASKLIST
+            PRESPARAMS PP_FONTNAMESIZE, "9.WarpSans"
+    BEGIN
+        PUSHBUTTON      "~Reset", PB_RESET, 40, 5, 40, 15, WS_GROUP
+        PUSHBUTTON      "~About", PB_ABOUT, 120, 5, 40, 15, WS_GROUP
+        PUSHBUTTON      "~Exit", PB_EXIT, 200, 5, 40, 15, WS_GROUP
+        GROUPBOX        "Other Fields", 104, 95, 25, 185, 105
+        AUTOCHECKBOX    "Enable diagnostic messages and ignore NVRAM", CB_BIT15,
+                        100, 30, 178, 10, NOT WS_TABSTOP
+        AUTOCHECKBOX    "IP broadcasts don not have network number", CB_BIT14,
+                        100, 40, 178, 10, NOT WS_TABSTOP
+        AUTOCHECKBOX    "Boot default ROM software if network boot fails",
+                        CB_BIT13, 100, 50, 178, 10, NOT WS_TABSTOP
+        AUTOCHECKBOX    "IP broadcast with all zeros", CB_BIT10, 100, 60, 178, 10,
+                        NOT WS_TABSTOP
+        AUTOCHECKBOX    "Use the secondary bootstrap", CB_BIT9, 100, 70, 178, 10,
+                        NOT WS_TABSTOP
+        AUTOCHECKBOX    "Break disabled", CB_BIT8, 100, 80, 178, 10, NOT
+                        WS_TABSTOP
+        AUTOCHECKBOX    "OEM bit enabled", CB_BIT7, 100, 90, 178, 10, NOT
+                        WS_TABSTOP
+        AUTOCHECKBOX    "Ignore the contents of NVRAM", CB_BIT6, 100, 100, 178,
+                        10, NOT WS_TABSTOP
+        AUTOCHECKBOX    "Fast boot", CB_BIT4, 100, 110, 178, 10, NOT WS_TABSTOP
+        GROUPBOX        "Console Line Speed (bps)", 114, 0, 25, 90, 105
+        AUTORADIOBUTTON "1200", RB_1200, 5, 110, 40, 10
+        AUTORADIOBUTTON "2400", RB_2400, 5, 100, 40, 10
+        AUTORADIOBUTTON "4800", RB_4800, 5, 90, 40, 10
+        AUTORADIOBUTTON "9600", RB_9600, 5, 80, 40, 10
+        AUTORADIOBUTTON "19200", RB_19200, 5, 70, 40, 10
+        AUTORADIOBUTTON "38400", RB_38400, 5, 60, 40, 10
+        AUTORADIOBUTTON "57600", RB_57600, 5, 50, 40, 10
+        AUTORADIOBUTTON "115200", RB_115200, 5, 40, 40, 10
+        GROUPBOX        "Boot Field", 123, 0, 135, 280, 45
+        AUTORADIOBUTTON "Enable default booting from Flash memory", RB_2, 5,
+                        140, 180, 10
+        AUTORADIOBUTTON "Boot system image on EPROM", RB_1, 5, 150, 180, 10
+        AUTORADIOBUTTON "Stay at the system bootstrap prompt", RB_0, 5, 160,
+                        180, 10
+        GROUPBOX        "Enter Config Register Value", 127, 0, 185, 280, 40
+        ENTRYFIELD      "", EF_BIT_15, 7, 192, 6, 6, ES_CENTER | NOT
+                        ES_AUTOSCROLL | ES_MARGIN | ES_READONLY | NOT
+                        WS_TABSTOP
+        ENTRYFIELD      "", EF_BIT_14, 22, 192, 6, 6, ES_CENTER | NOT
+                        ES_AUTOSCROLL | ES_MARGIN | ES_READONLY | NOT
+                        WS_TABSTOP
+        ENTRYFIELD      "", EF_BIT_13, 37, 192, 6, 6, ES_CENTER | NOT
+                        ES_AUTOSCROLL | ES_MARGIN | ES_READONLY | NOT
+                        WS_TABSTOP
+        ENTRYFIELD      "", EF_BIT_12, 52, 192, 6, 6, ES_CENTER | NOT
+                        ES_AUTOSCROLL | ES_MARGIN | ES_READONLY | NOT
+                        WS_TABSTOP
+        ENTRYFIELD      "", EF_BIT_11, 72, 192, 6, 6, ES_CENTER | NOT
+                        ES_AUTOSCROLL | ES_MARGIN | ES_READONLY | NOT
+                        WS_TABSTOP
+        ENTRYFIELD      "", EF_BIT_10, 87, 192, 6, 6, ES_CENTER | NOT
+                        ES_AUTOSCROLL | ES_MARGIN | ES_READONLY | NOT
+                        WS_TABSTOP
+        ENTRYFIELD      "", EF_BIT_9, 102, 192, 6, 6, ES_CENTER | NOT
+                        ES_AUTOSCROLL | ES_MARGIN | ES_READONLY | NOT
+                        WS_TABSTOP
+        ENTRYFIELD      "", EF_BIT_8, 117, 192, 6, 6, ES_CENTER | NOT
+                        ES_AUTOSCROLL | ES_MARGIN | ES_READONLY | NOT
+                        WS_TABSTOP
+        ENTRYFIELD      "", EF_BIT_7, 137, 192, 6, 6, ES_CENTER | NOT
+                        ES_AUTOSCROLL | ES_MARGIN | ES_READONLY | NOT
+                        WS_TABSTOP
+        ENTRYFIELD      "", EF_BIT_6, 152, 192, 6, 6, ES_CENTER | NOT
+                        ES_AUTOSCROLL | ES_MARGIN | ES_READONLY | NOT
+                        WS_TABSTOP
+        ENTRYFIELD      "", EF_BIT_5, 167, 192, 6, 6, ES_CENTER | NOT
+                        ES_AUTOSCROLL | ES_MARGIN | ES_READONLY | NOT
+                        WS_TABSTOP
+        ENTRYFIELD      "", EF_BIT_4, 182, 192, 6, 6, ES_CENTER | NOT
+                        ES_AUTOSCROLL | ES_MARGIN | ES_READONLY | NOT
+                        WS_TABSTOP
+        ENTRYFIELD      "", EF_BIT_3, 202, 192, 6, 6, ES_CENTER | NOT
+                        ES_AUTOSCROLL | ES_MARGIN | ES_READONLY | NOT
+                        WS_TABSTOP
+        ENTRYFIELD      "", EF_BIT_2, 217, 192, 6, 6, ES_CENTER | NOT
+                        ES_AUTOSCROLL | ES_MARGIN | ES_READONLY | NOT
+                        WS_TABSTOP
+        ENTRYFIELD      "", EF_BIT_1, 232, 192, 6, 6, ES_CENTER | NOT
+                        ES_AUTOSCROLL | ES_MARGIN | ES_READONLY | NOT
+                        WS_TABSTOP
+        ENTRYFIELD      "", EF_BIT_0, 247, 192, 6, 6, ES_CENTER | NOT
+                        ES_AUTOSCROLL | ES_MARGIN | ES_READONLY | NOT
+                        WS_TABSTOP
+        LTEXT           "Enter in hexadecimal form (ie 2102)", 144, 5, 205,
+                        110, 10, DT_VCENTER | NOT WS_GROUP
+        ENTRYFIELD      "", EF_VALUE, 122, 207, 26, 6, NOT ES_AUTOSCROLL |
+                        ES_MARGIN
+        PUSHBUTTON      "~Calculate", PB_CALCULATE, 165, 205, 40, 15,
+                        WS_GROUP
+    END
+END
+
+DLGTEMPLATE 200
+BEGIN
+	DIALOG "", 200, 15, 55, 190, 70, FS_DLGBORDER | WS_VISIBLE | WS_CLIPSIBLINGS | WS_SAVEBITS
+	BEGIN
+		CONTROL "~OK", 201, 5, 7, 40, 14, WC_BUTTON, BS_PUSHBUTTON | WS_VISIBLE | WS_GROUP | WS_TABSTOP
+		CONTROL "ConfReg2 1.0", 202, 40, 50, 80, 14, WC_STATIC, SS_TEXT | DT_CENTER | DT_TOP | DT_MNEMONIC | WS_VISIBLE
+		PRESPARAMS PP_FONTNAMESIZE "14.Helv"
+		CONTROL "Декодирование config-register", 203, 5, 35, 180, 10, WC_STATIC, SS_TEXT | DT_CENTER | DT_TOP | DT_MNEMONIC | WS_VISIBLE
+		PRESPARAMS PP_FONTNAMESIZE "10.Helv"
+		CONTROL "Олег Жуков, 2002", 204, 55, 20, 80, 10, WC_STATIC, SS_TEXT | DT_LEFT | DT_TOP | DT_MNEMONIC | WS_VISIBLE
+		PRESPARAMS PP_FONTNAMESIZE "10.Helvetica"
+      CONTROL "zhk@ibs-ltd.kiev.ua", 205, 55, 5, 80, 10, WC_STATIC, SS_TEXT | DT_LEFT | DT_TOP | DT_MNEMONIC | WS_VISIBLE
+		PRESPARAMS PP_FONTNAMESIZE "10.Helv"
+	END
+END

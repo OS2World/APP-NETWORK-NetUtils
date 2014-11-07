@@ -1,0 +1,9 @@
+option  link(pmtype, pm), link(linkwithmultithreadlib),
+        link(linkwithsharedlib,no), opt(level, "2")
+{
+   target "ConfReg2.exe"
+   {
+      source type(c) "ConfReg2.c"
+      source type(rc) "ConfReg2.rc"
+   }
+}

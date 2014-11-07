@@ -1,0 +1,9 @@
+option  link(pmtype, pm), link(linkwithmultithreadlib),
+        link(linkwithsharedlib,no), opt(level, "2")
+{
+   target "SubNets.exe"
+   {
+      source type(c) "SubNets.c"
+      source type(rc) "SubNets.rc"
+   }
+}

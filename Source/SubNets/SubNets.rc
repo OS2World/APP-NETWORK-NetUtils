@@ -1,0 +1,63 @@
+#include <os2.h>
+#include "SubNets.h"
+
+ICON 1 "SubNets.ICO"
+
+DLGTEMPLATE DIALOGWIN PRELOAD MOVEABLE
+BEGIN
+    DIALOG  "SubNetworks Calculator", DIALOGWIN, 15, 88, 290, 110,
+            FS_SCREENALIGN | WS_VISIBLE, FCF_SYSMENU | FCF_TITLEBAR |
+            FCF_MINBUTTON | FCF_TASKLIST
+            PRESPARAMS PP_FONTNAMESIZE, "9.WarpSans"
+    BEGIN
+        LTEXT           "Enter Host IP address", 101, 5, 95, 70, 10, DT_VCENTER | NOT WS_GROUP
+        ENTRYFIELD      "", EF_A1,  77, 97, 16, 6, NOT ES_AUTOSCROLL | ES_MARGIN
+        ENTRYFIELD      "", EF_A2, 102, 97, 16, 6, NOT ES_AUTOSCROLL | ES_MARGIN
+        ENTRYFIELD      "", EF_A3, 127, 97, 16, 6, NOT ES_AUTOSCROLL | ES_MARGIN
+        ENTRYFIELD      "", EF_A4, 152, 97, 16, 6, NOT ES_AUTOSCROLL | ES_MARGIN
+        CONTROL         "", SBH, 0, 70, 180, 25, WC_SLIDER, SLS_HORIZONTAL |
+                        SLS_SNAPTOINCREMENT | SLS_PRIMARYSCALE2 |
+                        SLS_BUTTONSRIGHT | SLS_CENTER | WS_VISIBLE
+        CTLDATA         12, 0,33,0,33,0
+        LTEXT           "", LT_NET, 175, 95, 115, 10, DT_VCENTER | NOT WS_GROUP
+        LTEXT           "Mask Bits", 108, 190, 80, 45, 10, DT_VCENTER
+        LTEXT           "Subnet Mask", 109, 190, 70, 45, 10, DT_VCENTER
+        LTEXT           "Subnet Bits", 110, 190, 60, 45, 10, DT_VCENTER
+        LTEXT           "Host Bits", 111, 190, 50, 45, 10, DT_VCENTER
+        LTEXT           "Number of Subnets", 112, 190, 40, 55, 10, DT_VCENTER
+        LTEXT           "Number of Hosts", 113, 190, 30, 55, 10, DT_VCENTER
+        LTEXT           "Total Hosts", 114, 190, 20, 55, 10, DT_VCENTER
+        LTEXT           "Current Network", 115, 5, 60, 60, 10, DT_VCENTER
+        LTEXT           "Current Host Range", 116, 5, 45, 60, 10, DT_VCENTER
+        LTEXT           "Current Broadcast Address", 117, 5, 30, 80, 10, DT_VCENTER
+        PUSHBUTTON      "~Calculate", PB_CALCULATE,  45, 0, 40, 15
+        PUSHBUTTON      "~About",     PB_ABOUT,     125, 0, 40, 15
+        PUSHBUTTON      "~Exit",      PB_EXIT,      205, 0, 40, 15
+        LTEXT           "", TXT_MB,  230, 80, 60, 10, DT_VCENTER
+        LTEXT           "", TXT_M,   230, 70, 60, 10, DT_VCENTER
+        LTEXT           "", TXT_SB,  230, 60, 60, 10, DT_VCENTER
+        LTEXT           "", TXT_HB,  230, 50, 60, 10, DT_VCENTER
+        LTEXT           "", TXT_NS,  245, 40, 45, 10, DT_VCENTER
+        LTEXT           "", TXT_NH,  245, 30, 45, 10, DT_VCENTER
+        LTEXT           "", TXT_T,   245, 20, 45, 10, DT_VCENTER
+        LTEXT           "", TXT_CN,  65, 60, 120, 10, DT_VCENTER
+        LTEXT           "", TXT_CHR, 65, 45, 120, 10, DT_VCENTER
+        LTEXT           "", TXT_CB,  90, 30,  95, 10, DT_VCENTER
+    END
+END
+
+DLGTEMPLATE 200
+BEGIN
+	DIALOG "", 200, 15, 55, 190, 70, FS_DLGBORDER | WS_VISIBLE | WS_CLIPSIBLINGS | WS_SAVEBITS
+	BEGIN
+		CONTROL "~OK", 201, 5, 7, 40, 14, WC_BUTTON, BS_PUSHBUTTON | WS_VISIBLE | WS_GROUP | WS_TABSTOP
+		CONTROL "SubNets 1.0", 202, 40, 50, 80, 14, WC_STATIC, SS_TEXT | DT_CENTER | DT_TOP | DT_MNEMONIC | WS_VISIBLE
+		PRESPARAMS PP_FONTNAMESIZE "14.Helv"
+		CONTROL "Программа калькуляции подсетей", 203, 5, 35, 180, 10, WC_STATIC, SS_TEXT | DT_CENTER | DT_TOP | DT_MNEMONIC | WS_VISIBLE
+		PRESPARAMS PP_FONTNAMESIZE "10.Helv"
+		CONTROL "Олег Жуков, 2002", 204, 55, 20, 80, 10, WC_STATIC, SS_TEXT | DT_LEFT | DT_TOP | DT_MNEMONIC | WS_VISIBLE
+		PRESPARAMS PP_FONTNAMESIZE "10.Helvetica"
+      CONTROL "zhk@ibs-ltd.kiev.ua", 205, 55, 5, 80, 10, WC_STATIC, SS_TEXT | DT_LEFT | DT_TOP | DT_MNEMONIC | WS_VISIBLE
+		PRESPARAMS PP_FONTNAMESIZE "10.Helv"
+	END
+END

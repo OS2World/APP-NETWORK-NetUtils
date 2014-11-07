@@ -1,0 +1,55 @@
+#include <os2.h>
+#include "Wildcard.h"
+
+ICON 1 "Wildcard.ICO"
+
+DLGTEMPLATE DIALOGWIN PRELOAD MOVEABLE
+BEGIN
+    DIALOG  "Wildcard Mask Checker for Cisco Router", DIALOGWIN, 43, 90, 286, 
+            95, FS_SCREENALIGN | WS_VISIBLE, FCF_SYSMENU | FCF_TITLEBAR | 
+            FCF_MINBUTTON | FCF_TASKLIST
+            PRESPARAMS PP_FONTNAMESIZE, "9.WarpSans"
+    BEGIN
+        LTEXT           "Enter IP Address", 101, 5, 80, 60, 10, DT_VCENTER | 
+                        NOT WS_GROUP
+        LTEXT           "Enter Wildcard Mask", 102, 5, 65, 60, 10, 
+                        DT_VCENTER | NOT WS_GROUP
+        ENTRYFIELD      "", EF_A1, 72, 82, 31, 6, ES_MARGIN
+        ENTRYFIELD      "", EF_A2, 122, 82, 31, 6, ES_MARGIN
+        ENTRYFIELD      "", EF_A3, 172, 82, 31, 6, ES_MARGIN
+        ENTRYFIELD      "", EF_A4, 222, 82, 31, 6, ES_MARGIN
+        ENTRYFIELD      "", EF_M1, 72, 67, 31, 6, ES_MARGIN
+        ENTRYFIELD      "", EF_M2, 122, 67, 31, 6, ES_MARGIN
+        ENTRYFIELD      "", EF_M3, 172, 67, 31, 6, ES_MARGIN
+        ENTRYFIELD      "", EF_M4, 222, 67, 31, 6, ES_MARGIN
+        CTEXT           "These addresses match", 111, 70, 50, 195, 10, 
+                        DT_VCENTER | NOT WS_GROUP
+        MLE             "", MLE1, 70, 5, 45, 45, MLS_READONLY | MLS_VSCROLL | 
+                        NOT WS_TABSTOP
+        MLE             "", MLE2, 120, 5, 45, 45, MLS_READONLY | MLS_VSCROLL | 
+                        NOT WS_TABSTOP
+        MLE             "", MLE3, 170, 5, 45, 45, MLS_READONLY | MLS_VSCROLL | 
+                        NOT WS_TABSTOP
+        MLE             "", MLE4, 220, 5, 45, 45, MLS_READONLY | MLS_VSCROLL | 
+                        NOT WS_TABSTOP
+        PUSHBUTTON      "~Calculate", PB_CALCULATE, 5, 45, 45, 15
+        PUSHBUTTON      "~About", PB_ABOUT, 5, 25, 45, 15
+        PUSHBUTTON      "~Exit", PB_EXIT, 5, 5, 45, 15
+    END
+END
+
+DLGTEMPLATE 200
+BEGIN
+	DIALOG "", 200, 15, 55, 190, 70, FS_DLGBORDER | WS_VISIBLE | WS_CLIPSIBLINGS | WS_SAVEBITS
+	BEGIN
+		CONTROL "~OK", 201, 5, 7, 40, 14, WC_BUTTON, BS_PUSHBUTTON | WS_VISIBLE | WS_GROUP | WS_TABSTOP
+		CONTROL "Wildcard 1.0", 202, 40, 50, 80, 14, WC_STATIC, SS_TEXT | DT_CENTER | DT_TOP | DT_MNEMONIC | WS_VISIBLE
+		PRESPARAMS PP_FONTNAMESIZE "14.Helv"
+		CONTROL "Проверка wildcard mask", 203, 5, 35, 180, 10, WC_STATIC, SS_TEXT | DT_CENTER | DT_TOP | DT_MNEMONIC | WS_VISIBLE
+		PRESPARAMS PP_FONTNAMESIZE "10.Helv"
+		CONTROL "Олег Жуков, 2002", 204, 55, 20, 80, 10, WC_STATIC, SS_TEXT | DT_LEFT | DT_TOP | DT_MNEMONIC | WS_VISIBLE
+		PRESPARAMS PP_FONTNAMESIZE "10.Helvetica"
+      CONTROL "zhk@ibs-ltd.kiev.ua", 205, 55, 5, 80, 10, WC_STATIC, SS_TEXT | DT_LEFT | DT_TOP | DT_MNEMONIC | WS_VISIBLE
+		PRESPARAMS PP_FONTNAMESIZE "10.Helv"
+	END
+END

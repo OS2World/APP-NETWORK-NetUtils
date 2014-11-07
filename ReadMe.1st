@@ -1,0 +1,23 @@
+NetUtils 1.0
+============
+
+NetUtils - это набор из небольших утилит, предназначенный, в первую очередь,
+для начинающих работать с TCP/IP и маршрутизаторами Cisco.
+
+В настоящее время в комплект входят следующие программы:
+
+SubNets  - калькулятор подсетей.
+Wildcard - программа проверки wildcard mask.
+ConfReg2 - программа декодирования configuration register.
+
+-------------------------------------------------------------------------------
+
+NetUtils - this suite contains small utilities for newbies in TCP/IP
+and Cisco routers.
+
+Currently, there are programs:
+
+SubNets  - subnetworks calculator.
+Wildcard - wildcard mask checker.
+ConfReg2 - configuration register decoder.
+
